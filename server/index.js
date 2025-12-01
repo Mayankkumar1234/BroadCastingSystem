@@ -2,6 +2,8 @@ import cors from "cors";
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import dotenv from "dotenv";
+dotenv.config()
 
 const app = express();
 
@@ -14,7 +16,7 @@ const io = new Server(server, {
     method: ["GET", "POST"],
   },
 });
-const PORT = 3000;
+const PORT = process.env.PORT ||  3000;
 const HOST = "192.168.1.8";
 
 // console.log(join(_dirname, "public/index.html"));
